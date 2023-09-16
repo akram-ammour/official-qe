@@ -23,7 +23,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(cors(
     {
-    origin:[`${process.env.BASE_URL}`],
+    origin:[`${process.env.BASE_URL}`,'http://e-qe.com'],
     methods:["POST",'GET',"PATCH","DELETE"],
     credentials:true
     }

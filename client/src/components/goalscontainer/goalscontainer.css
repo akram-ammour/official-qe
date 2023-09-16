@@ -1,0 +1,59 @@
+.app__goalscontainer{
+    min-height: 460px;
+    height: 460px;
+    border-radius: 12px;
+    border: 1px solid rgb(211, 211, 211,0.5);
+    background: linear-gradient(180deg, rgba(255, 251, 251, 0.68) 0%, rgba(64, 64, 64, 0.26) 100%);
+    box-shadow: 11px 14px 51px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(13px);
+    padding: 0.6rem 1.2rem 1rem;
+}
+
+.app__goalscontainer-pannel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.app__goalscontainer-pannel p,
+.app__goalscontainer-pannel span{
+    color: rgba(0, 0, 0, 0.63);
+    font-size: 22px;
+    font-family: var(--font-poppins);
+    font-weight: 700;
+}
+.app__goalscontainer-pannel span{
+    font-size: 17px;
+    cursor: pointer;
+}
+.app__goalsconatiner-goals{
+    max-height: 89%;
+    overflow-y: scroll;
+    margin-top: 1rem;
+    padding-right: 1rem;
+}
+.app__goalsconatiner-goals::-webkit-scrollbar-thumb {
+    background: #6A6A6A;
+}
+
+.app__goalsconatiner-goals .not-available{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: var(--font-poppins);
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+}
+
+@media screen  and (max-width:1301px) {
+    .app__goalsconatiner-goals .not-available{
+        font-size: 25px;
+    }
+}
+@media screen  and (max-width:1105px) {
+    .app__goalsconatiner-goals .not-available{
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,63 @@
+.app_prices >h1{
+    font-family: var(--font-manrope);
+    font-weight: 800;
+    font-size: 42px;
+    line-height: 62px;
+    /* identical to box height, or 100% */
+    text-align: center;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+}
+.app__prices-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width:1468px) {
+    .app__prices-container .app__pricecard{
+        margin: 1rem 0;
+    }
+    .app__prices-container .app__pricecard:nth-child(1){
+        order: 1;
+    }
+    .app__prices-container .app__pricecard:nth-child(2){
+        order: 3;
+    }
+    .app__prices-container .app__pricecard:nth-child(3){
+        order:2;
+    }
+}
+@media screen and (max-width:1041px) {
+
+    .app__prices-container .app__pricecard:nth-child(1){
+        order: 1;
+    }
+    .app__prices-container .app__pricecard:nth-child(2){
+        order: 2;
+    }
+    .app__prices-container .app__pricecard:nth-child(3){
+        order:3;
+    }
+    .app_prices >h1{
+        font-size: 32px;
+        line-height: 52px;
+    } 
+
+    
+}
+@media screen and (max-width:481px) {
+    .app__prices-container{
+        min-height: none;
+    }
+    .app__prices-container .app__planfeature-bullet img{
+        width: 20px;
+        height: 20px;
+    }
+    .app__prices-container .app__planfeature p{
+        font-size: 12px;
+        line-height: 24px;
+    }
+}

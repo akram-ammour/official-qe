@@ -1,0 +1,24 @@
+.app__planfeature{
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin: 1rem 0;
+}
+.app__planfeature-bullet{
+    
+
+    object-fit: contain;
+}
+.app__planfeature-bullet img{
+    width: 25px;
+    height: 25px;
+}
+.app__planfeature p {
+    font-family: var(--font-manrope);
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 27px;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
+    color: var(--color-gray-purpleish);
+}

@@ -1,0 +1,20 @@
+.app__signup .app__navbar-links_container,
+.app__signup .app__navbar-menu{
+    display: none;
+}
+@media screen and (max-width:550px) {
+    .app__signup .app__navbar-sign{
+        display: flex;
+        justify-self: flex-end;
+        margin: 0;
+    }
+    .app__signup .app__navbar-sign li,
+    .app__signup .app__navbar-sign button{
+        font-size: 15px;
+        line-height: 16px;
+    }
+    .app__signup.app__navbar{
+        padding: 2rem;
+        margin: 0;
+    }
+}

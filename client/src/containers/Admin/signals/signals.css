@@ -1,0 +1,32 @@
+.app__signalscontainer{
+    margin-top: 1rem;
+}
+.app__signalscontainer-tabs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7rem;
+}
+.app__signalscontainer-tabs_tab{
+    color: #717171;
+    font-family: var(--font-poppins);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer ;
+}
+.app__signalscontainer-tabs .active {
+    font-weight: 800;
+}
+.app__signalscontainer-tabs_divider{
+    border: 1px solid grey;
+    height: 1rem;
+}
+
+.app__signalscontainer-content_questions,
+.app__signalscontainer-content_bugs{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

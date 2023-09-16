@@ -1,0 +1,86 @@
+.app__upcomingexam{
+    border-radius: 12px;
+    border: 1px solid #D3D3D3;
+    background: linear-gradient(180deg, rgba(255, 251, 251, 0.68) 0%, rgba(64, 64, 64, 0.26) 100%);
+    box-shadow: 11px 14px 51px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(13px);
+    padding: 0.2rem 1rem 3rem;
+    height: 100%;
+    padding: 0.2rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.app__upcomingexam-pannel{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.app__upcomingexam-pannel h3{
+    color: rgba(0, 0, 0, 0.63);
+    font-size: 27px;
+    font-family: var(--font-poppins);
+    font-weight: 700;
+}
+.app__upcomingexam-pannel span{
+    color: rgba(0, 0, 0, 0.63);
+    font-size: 17px;
+    font-family: var(--font-poppins);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.app__upcomingexam-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 23px;
+    border: 2px solid #FDFDFD;
+    background: linear-gradient(232deg, #6A6A6A 0%, rgba(106, 106, 106, 0.44) 100%);
+    backdrop-filter: blur(14.5px);
+    padding: 20px 1rem;
+}
+ 
+.app__upcomingexam-container_content{
+    text-align: center;
+}
+.app__upcomingexam-container .title{
+    color: #FFF;
+    font-size: 31px;
+    font-family: var(--font-inter);
+    font-weight: 500;
+}
+.app__upcomingexam-container .days{
+    color: #FFF;
+    font-size: 71px;
+    font-family: var(--font-inter);
+    font-weight: 700;
+}
+.app__upcomingexam-container .infos{
+    color: #FFF;
+    font-size: 31px;
+    font-family: var(--font-inter);
+    font-weight: 300;
+}
+@media screen and (max-width:1109px){
+    .app__upcomingexam-pannel h3{
+
+        font-size: 22px;
+
+    }
+    .app__upcomingexam-pannel span{
+        font-size: 12px;
+    }
+     
+    .app__upcomingexam-container .title{
+        font-size: 22px;
+    }
+    .app__upcomingexam-container .days{
+        font-size: 46px;
+    }
+    .app__upcomingexam-container .infos{
+        font-size: 22px;
+    }
+}

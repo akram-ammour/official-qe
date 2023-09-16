@@ -1,0 +1,256 @@
+.app__popupbasecomponent-content .edit-user,
+.app__popupbasecomponent-content .add-user{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.app__popupbasecomponent-content .edit-user .image,
+.app__popupbasecomponent-content .add-user .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 5rem;
+    background-color: #28AD35;
+    color: #FFF;
+    font-family: var(--font-poppins);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: normal;
+
+}
+.app__popupbasecomponent-content .edit-user .user-infos{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.app__popupbasecomponent-content .edit-user .user-infos h1{
+    color: #646464;
+    font-family: var(--font-poppins);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.8;
+}
+.app__popupbasecomponent-content .edit-user .user-infos h3{
+    color: #646464;
+    font-family: var(--font-poppins);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.app__popupbasecomponent-content .edit-user .user-infos p{
+    display: flex;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 0.8;
+
+}
+.app__popupbasecomponent-content .edit-user .user-infos p span{
+    color: #000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    line-height: 0.8;
+    
+}
+
+
+.app__popupbasecomponent-content .infos-stats{
+    margin-top: 2rem;
+}
+
+
+.app__popupbasecomponent-content .infos-stats .infos,
+.app__popupbasecomponent-content .infos-parent .infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10rem;
+    margin-right: 20rem;
+}
+.app__popupbasecomponent-content .infos-stats .infos .selects,
+.app__popupbasecomponent-content .infos-stats .infos .options,
+.app__popupbasecomponent-content .infos-parent .infos .selects,
+.app__popupbasecomponent-content .infos-parent .infos .options{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.app__popupbasecomponent-content .infos-stats .infos .selects .select,
+.app__popupbasecomponent-content .infos-stats .infos .options .option,
+.app__popupbasecomponent-content .infos-parent .infos .selects .select,
+.app__popupbasecomponent-content .infos-parent .infos .options .option{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+.app__popupbasecomponent-content .infos-stats .infos .selects .select p,
+.app__popupbasecomponent-content .infos-stats .infos .options .option p,
+.app__popupbasecomponent-content .infos-parent .infos .selects .select p,
+.app__popupbasecomponent-content .infos-parent .infos .options .option p{
+    color: #080808;
+    font-family: var(--font-poppins);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+}
+.app__popupbasecomponent-content .infos-stats .infos .selects .select select,
+.app__popupbasecomponent-content .infos-parent .infos .selects .select select,
+.app__popupbasecomponent-content .add-user .user-infos  input ,
+.app__popupbasecomponent-content .infos-stats .pass input{
+    width: 270px;
+    border-radius: 8px;
+    border: 2px solid #C7C7C7;
+    padding: 2px 8px;
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+.app__popupbasecomponent-content .infos-stats .infos .options .option .checkbox,
+.app__popupbasecomponent-content .infos-parent .infos .options .option .checkbox{
+    width: 37px;
+    height: 37px;
+    border: 4px solid #C2C2C2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.app__popupbasecomponent-content .infos-stats .infos .options .option .checkbox .checked,
+.app__popupbasecomponent-content .infos-parent .infos .options .option .checkbox .checked{
+    width: 23px;
+    height: 23px;
+    border-radius: 6px;
+}
+
+
+.app__popupbasecomponent-content .infos-stats .buttons-container,
+.app__popupbasecomponent-content .infos-parent .buttons-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    margin-right: 0.6rem;
+    gap: 20px;
+}
+.app__popupbasecomponent-content .infos-parent .buttons-container{
+    justify-content: center;
+}
+
+.app__popupbasecomponent-content .infos-stats .buttons-container button,
+.app__popupbasecomponent-content .infos-parent .buttons-container button{
+    width: 150px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    color: #FFF;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 10px;
+    transition: 0.3s all ease
+    
+}
+.app__popupbasecomponent-content .infos-stats .buttons-container button:hover,
+.app__popupbasecomponent-content .infos-parent .buttons-container button:hover{
+    opacity: 0.7;
+}
+
+.app__popupbasecomponent-content .infos-stats .pass{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+}
+.app__popupbasecomponent-content .infos-stats .pass input{
+    width: 300px;
+    cursor: auto;
+}
+
+.app__popupbasecomponent-content .infos-stats .pass button{
+    margin-top: 2rem;
+    width: 200px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    color: #FFF;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 10px;
+    transition: 0.3s all ease;
+    background-color: black;
+    
+}
+.app__popupbasecomponent-content .infos-stats .pass button:hover{
+    opacity: 0.5;
+}
+
+.app__popupbasecomponent-content .add-user .user-infos {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.app__popupbasecomponent-content .add-user .user-infos .credentials,
+.app__popupbasecomponent-content .add-user .user-infos .passwords {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.app__popupbasecomponent-content .add-user .user-infos  input {
+    width: 300px;
+    cursor: auto;
+}
+.app__popupbasecomponent-content .infos-parent{
+    margin-top: 2rem;
+}
+/* .app__popupbasecomponent-content .infos-stats{
+    height: 75%;
+    overflow-y:scroll ;
+    padding-right: 10px;
+
+} */
+.app__popupbasecomponent-content .infos-stats::-webkit-scrollbar-thumb{
+    background-color: #28AD35;
+}
+.app__popupbasecomponent-content .infos-stats .stats{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+.app__popupbasecomponent-content .infos-stats .stats .semestre1,
+.app__popupbasecomponent-content .infos-stats .stats .semestre2{
+    flex: 1;
+}
+.app__popupbasecomponent-content .infos-stats .stats .semestre1 > p,
+.app__popupbasecomponent-content .infos-stats .stats .semestre2 >p{
+    color: #646464;
+    font-size: 22px;
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    text-align: center;
+    margin: 1rem 0 0.2rem;
+}
+.app__popupbasecomponent-content .infos-stats .stats .infos{
+    margin: 0;
+} 

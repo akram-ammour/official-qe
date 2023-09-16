@@ -1,0 +1,18 @@
+.app__customlabel{
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    margin: 1rem 0 1rem;
+}
+.app__customlabel > div{
+    width: 11px;
+    height:  30px;
+}
+.app__customlabel > p{
+    color: #252525;
+    font-size: 22px;
+    font-family: var(--font-poppins);
+    font-weight: 800;
+    letter-spacing: 0.56px;
+    transform: translateY(6px);
+}

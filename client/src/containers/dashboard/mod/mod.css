@@ -1,0 +1,32 @@
+.app__mod-courses,
+.app__mod-exams{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap:12px;
+}
+.app__mod{
+    padding: 1rem 0;
+}
+.app__mod-stats{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+/* 650 */
+@media screen and (max-width:656px) {
+    .app__mod-courses,
+    .app__mod-exams{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+@media screen and (max-width:425px) {
+    .app__mod-courses,
+    .app__mod-exams{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

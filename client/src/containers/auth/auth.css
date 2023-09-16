@@ -1,0 +1,196 @@
+.app__auth{
+    background: white;
+}
+.app__auth-container{
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 1rem ;
+    background: rgba(255, 255, 255, 0.83);
+    box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+}
+.app__auth-container h1{
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 48px;
+    color: #1E1E1E;
+    margin-bottom:1rem ;
+    text-transform: capitalize;
+}
+.app__auth-container_google {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
+    background: #F5F5F5;
+    border: 1px solid #aeaeae63;
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 13px;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    color: #000000;
+}
+.app__auth-container_google:hover{
+    background: #38194E;
+    border: 1px solid #38194E;
+    color: white;
+    transition: 0.7s;
+
+}
+.app__auth-container_google img{
+    width: 36px;
+    object-fit: contain;
+}
+.app__auth-line{
+    border: 1px solid #38194E;
+    flex: 1;
+    border-radius: 2px ;
+}
+.app__auth-container_separator{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.app__auth-container_separator p{
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 38px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
+.app__auth-container_changeauth{
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 33px;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 0.4rem;
+
+}
+.app__auth-container_changeauth a{
+    font-weight: 600;
+    color: #38194E;
+    text-transform: capitalize;
+    
+}
+
+.app__auth-container_needhelp{
+    position: relative;
+}
+.app__auth-container_needhelp > p{
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    text-align: center;
+    
+    color: #38194E;
+}
+.app__auth-container_needhelp-hover{
+    display: none;
+}
+
+.app__auth-container_needhelp:hover .app__auth-container_needhelp-hover{
+    display: block;
+    position: absolute;
+    background: #F5F5F5;
+    width: 250px;
+    border-radius: 10px;
+    bottom: 30px;
+    left: 50%;
+    padding: 4px 1rem;
+    transform: translateX(-50%);
+    filter: drop-shadow(10px 7px 32px rgba(0, 0, 0, 0.25));
+
+}
+.app__auth-container_needhelp-hover p{
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: justify;
+    text-transform: capitalize;
+    color: #000000;
+}
+.app__auth-container_needhelp-hover p span{
+    font-weight: 600;
+    color: #38194E;
+    
+}
+
+.app__auth-container_form p{
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 22px;
+    text-align: center;
+    color: #7D7D7D;
+    margin-bottom: 1rem;
+}
+.app__auth-container_button{
+    display: block;
+    min-width: 100%;
+    padding: 0.3rem 2rem;
+    border: none;
+    background: #38194E;
+    border-radius: 15px;
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 50px;
+    /* identical to box height */
+
+    letter-spacing: 0.055em;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: 0.5s;
+}
+.app__auth-container_button:hover{
+    opacity: 0.9;
+}
+.app__auth-container_form .app__custompassword{
+    margin: 1rem 0;
+}
+.app__auth-container_form .app__custominput,
+.app__auth-container_form .app__customselect{
+    width: 100%;
+    margin: 1rem 0;
+}
+.app__auth-container_form-name{
+    display: flex;
+    gap: 1rem;
+}
+.app__auth-container_form-name .app__custominput{
+    margin-bottom: 0;
+}
+
+@media screen and (max-width:429px){
+    .app__auth-container_google{
+        font-size: 14px;
+        line-height: 16px;
+        gap: 2rem;
+    }
+    .app__auth-container_form p{
+        font-size: 15px;
+        line-height: 16px;
+    }
+    .app__auth-container_changeauth,
+    .app__auth-container_needhelp > p{
+        font-size: 19px;
+        line-height: 33px;
+    }
+    .app__auth-container_button{
+        padding: 0.2rem 1rem;
+        font-size: 17px;
+        line-height: 40px;
+    }
+}

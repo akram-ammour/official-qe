@@ -1,0 +1,635 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum PLANS {
+  FIRST
+  SECOND
+  THIRD
+  FOURTH
+  FIFTH
+}
+
+enum SUBSCRIPTION {
+  FREE
+  PAID
+  PLUS
+}
+
+enum SEMESTERS {
+  SEMESTER1
+  SEMESTER2
+}
+
+enum Title {
+  Grandmaster // 92%
+  Master // 80%
+  Genius // 60%
+  Learner // 30%
+  Rookie //10%
+  Noob
+}
+
+model User {
+  Id           Int          @id @default(autoincrement())
+  Fname        String
+  Lname        String
+  Email        String       @unique
+  Password     String
+  Plan         PLANS
+  Semester1    Boolean      @default(true)
+  Semester2    Boolean      @default(false)
+  Subscription SUBSCRIPTION @default(FREE)
+  // userprogress
+
+  // Title Title @default(Noob)
+
+  UserExamAnswers   UserExamAnswer[]
+  UserCourseAnswers UserCourseAnswer[]
+
+  // if user purchased more than 1 semester multiple dates
+  // Date       Date[]
+  // UserPoints UserPoints[]
+  // Comments   Comments[]
+  // Signal     Signal[]
+  // Bug        Bug[]
+  // Likes      Likes[]
+  UserCourseProgress UserCourseProgress[]
+  UserExamProgress   UserExamProgress[]
+  Points             Points[]
+}
+
+enum Colors {
+  RED
+  BLUE
+  GREEN
+  PURPLE
+  BLACK
+  YELLOW
+  ORANGE
+  LIGHTBLUE
+}
+
+model Module {
+  Id       Int       @id @default(autoincrement())
+  
+  Year     PLANS
+  Semester SEMESTERS
+  Title    String
+
+  // exam and course
+  Cours    Cours[]
+  Exam     Exam[]
+
+  Icon String
+
+  Points Points[]
+  color  Colors   @default(RED)
+}
+
+model Points {
+  Id     Int    @id @default(autoincrement())
+  user   User   @relation(fields: [userId], references: [Id])
+  Module Module @relation(fields: [moduleId], references: [Id])
+
+  totalPoints BigInt
+  userId      Int
+  moduleId    Int
+}
+
+model Cours {
+  Id    Int    @id @default(autoincrement())
+  title String @unique
+
+  moduleId Int
+  module   Module @relation(fields: [moduleId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+
+  Questions          Question[]
+  UserCourseProgress UserCourseProgress[]
+  UserCourseAnswer   UserCourseAnswer[]
+}
+
+enum SESSION {
+  N
+  R
+  E
+}
+
+model Exam {
+  Id Int @id @default(autoincrement())
+
+  Year    Int
+  Session SESSION
+
+  Module   Module @relation(fields: [ModuleId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  ModuleId Int
+
+  Questions        Question[]
+  UserExamProgress UserExamProgress[]
+  UserExamAnswer   UserExamAnswer[]
+}
+
+model Question {
+  Id               Int                @id @default(autoincrement())
+  Text             String
+  CasClinique      String?
+  Number           Int
+  Cours            Cours              @relation(fields: [CoursId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  Exam             Exam               @relation(fields: [ExamId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  Options          Options[] //bu7dha li b9at
+  CoursId          Int
+  ExamId           Int
+  // fix child of
+  UserExamAnswer   UserExamAnswer[]
+  UserCourseAnswer UserCourseAnswer[]
+
+  Image String?
+
+  Parent             Question?            @relation("ParentChild", fields: [ParentId], references: [Id])
+  Children           Question[]           @relation("ParentChild")
+  ParentId           Int?
+  UserCourseProgress UserCourseProgress[]
+  UserExamProgress   UserExamProgress[]
+}
+
+model Options {
+  Id         Int      @id @default(autoincrement())
+  Question   Question @relation(fields: [questionId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  questionId Int
+  Choice     String
+  Value      Boolean
+
+
+//  here it was a 1 to many relationship
+// i turned it to many to many since my brain 
+// told me that each option has multiple Useranswers
+  UserExamAnswer UserExamAnswer[]
+
+  UserCourseAnswer UserCourseAnswer[]
+}
+
+// will let me know which question is correct which is not and save that
+model UserExamAnswer {
+  id Int @id @default(autoincrement())
+
+  User   User @relation(fields: [userId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  userId Int
+
+  Exam   Exam @relation(fields: [examId], references: [Id],onDelete: Cascade)
+  examId Int
+
+  Question   Question @relation(fields: [questionId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  questionId Int
+
+  Choices Options[]
+}
+
+model UserCourseAnswer {
+  id Int @id @default(autoincrement())
+
+  User   User @relation(fields: [userId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  userId Int
+
+  cours   Cours @relation(fields: [coursId], references: [Id],onDelete: Cascade)
+  coursId Int
+
+  Question   Question @relation(fields: [questionId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  questionId Int
+
+  Choices Options[]
+}
+
+// every record represents if a question
+// is correct or not
+// so by nature i m grabbing all the
+// questions where the userid is userid
+// where the module is 
+// where the questions are marked as 
+// correct
+model UserCourseProgress {
+  id Int @id @default(autoincrement())
+
+  user   User @relation(fields: [userId], references: [Id],onDelete: Cascade)
+  userId Int
+
+  cours   Cours @relation(fields: [coursId], references: [Id],onDelete: Cascade)
+  coursId Int
+
+  question   Question @relation(fields: [questionId], references: [Id],onDelete: Cascade)
+  questionId Int
+
+  isCorrect Boolean
+}
+
+model UserExamProgress {
+  id Int @id @default(autoincrement())
+
+  user   User @relation(fields: [userId], references: [Id],onDelete: Cascade)
+  userId Int
+
+  Exam   Exam @relation(fields: [examId], references: [Id],onDelete: Cascade)
+  examId Int
+
+  question   Question @relation(fields: [questionId], references: [Id],onDelete: Cascade)
+  questionId Int
+
+  isCorrect Boolean
+}
+
+// model Date {
+//   Id       Int       @id @default(autoincrement())
+//   User     User      @relation(fields: [userId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   Level    PLANS
+//   Semestre SEMESTERS
+//   date     DateTime
+//   userId   Int
+// }
+
+// i will do the ranking with the userPoints
+// i will also do the Titles based on the userPoints
+// model UserPoints {
+//   Id Int @id @default(autoincrement())
+
+//   User   User @relation(fields: [userId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   userId Int
+//   Points Int
+// }
+
+// comments and forum
+// model forum {
+//   Id         Int        @id @default(autoincrement())
+//   question   Question?  @relation(fields: [questionId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   questionId Int?
+//   Comments   Comments[]
+// }
+
+// model Comments {
+//   Id Int @id @default(autoincrement())
+
+//   User   User @relation(fields: [userId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   userId Int
+
+//   forum   forum? @relation(fields: [forumId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   forumId Int?
+
+//   CreatedAt DateTime @default(now())
+//   UpdatedAt DateTime
+
+//   Parent   Comments?  @relation("ParentChild", fields: [ParentId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   Children Comments[] @relation("ParentChild")
+//   ParentId Int?
+//   Likes    Likes[]
+// }
+
+// model Likes {
+//   User       User     @relation(fields: [userId], references: [Id])
+//   Comment    Comments @relation(fields: [commentsId], references: [Id])
+//   userId     Int
+//   commentsId Int
+
+//   @@id([userId, commentsId])
+// }
+
+// managing bugs/signals area
+// model Signal {
+//   Id         Int      @id @default(autoincrement())
+//   Question   Question @relation(fields: [questionId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   Text       String
+//   User       User     @relation(fields: [userId], references: [Id])
+//   questionId Int
+//   userId     Int
+// }
+
+// model Bug {
+//   Id         Int    @id @default(autoincrement())
+//   Text       String
+//   User       User   @relation(fields: [userId], references: [Id])
+//   questionId Int
+//   userId     Int
+// }
+
+// // This is your Prisma schema file,
+// // learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "mysql"
+//   url      = env("DATABASE_URL")
+// }
+
+// enum PLANS {
+//   FIRST
+//   SECOND
+//   THIRD
+//   FOURTH
+//   FIFTH
+// }
+
+// enum SUBSCRIPTION {
+//   FREE
+//   PAID
+//   PLUS
+// }
+
+// enum SEMESTERS {
+//   SEMESTER1
+//   SEMESTER2
+// }
+
+// enum Title {
+//   Grandmaster // 92%
+//   Master // 80%
+//   Genius // 60%
+//   Learner // 30%
+//   Rookie //10%
+//   Noob
+// }
+
+// model User {
+//   Id           Int          @id @default(autoincrement())
+//   Fname        String
+//   Lname        String
+//   Email        String       @unique
+//   Password     String
+//   Plan         PLANS
+//   Semester1    Boolean      @default(true)
+//   Semester2    Boolean      @default(false)
+//   Subscription SUBSCRIPTION @default(FREE)
+//   // userprogress
+
+//   // Title Title @default(Noob)
+
+//   UserExamAnswers   UserExamAnswer[]
+//   UserCourseAnswers UserCourseAnswer[]
+
+//   // if user purchased more than 1 semester multiple dates
+//   // Date       Date[]
+//   // UserPoints UserPoints[]
+//   // Comments   Comments[]
+//   // Signal     Signal[]
+//   // Bug        Bug[]
+//   // Likes      Likes[]
+//   UserCourseProgress UserCourseProgress[]
+//   UserExamProgress   UserExamProgress[]
+//   Points             Points[]
+// }
+
+// enum Colors {
+//   RED
+//   BLUE
+//   GREEN
+//   PURPLE
+//   BLACK
+//   YELLOW
+//   ORANGE
+//   LIGHTBLUE
+// }
+
+// model Module {
+//   Id       Int       @id @default(autoincrement())
+  
+//   Year     PLANS
+//   Semester SEMESTERS
+//   Title    String
+
+//   // exam and course
+//   Cours    Cours[]
+//   Exam     Exam[]
+
+//   Icon String
+
+//   Points Points[]
+//   color  Colors   @default(RED)
+// }
+
+// model Points {
+//   Id     Int    @id @default(autoincrement())
+//   user   User   @relation(fields: [userId], references: [Id])
+//   Module Module @relation(fields: [moduleId], references: [Id])
+
+//   totalPoints BigInt
+//   userId      Int
+//   moduleId    Int
+// }
+
+// model Cours {
+//   Id    Int    @id @default(autoincrement())
+//   title String @unique
+
+//   moduleId Int
+//   module   Module @relation(fields: [moduleId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+
+//   Questions          Question[]
+//   UserCourseProgress UserCourseProgress[]
+//   UserCourseAnswer   UserCourseAnswer[]
+// }
+
+// enum SESSION {
+//   N
+//   R
+//   E
+// }
+
+// model Exam {
+//   Id Int @id @default(autoincrement())
+
+//   Year    Int
+//   Session SESSION
+
+//   Module   Module @relation(fields: [ModuleId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   ModuleId Int
+
+//   Questions        Question[]
+//   UserExamProgress UserExamProgress[]
+//   UserExamAnswer   UserExamAnswer[]
+// }
+
+// model Question {
+//   Id               Int                @id @default(autoincrement())
+//   Text             String
+//   CasClinique      String?
+//   Number           Int
+//   Cours            Cours              @relation(fields: [CoursId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   Exam             Exam               @relation(fields: [ExamId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   Options          Options[] //bu7dha li b9at
+//   CoursId          Int
+//   ExamId           Int
+//   // fix child of
+//   UserExamAnswer   UserExamAnswer[]
+//   UserCourseAnswer UserCourseAnswer[]
+
+//   Image String?
+
+//   Parent             Question?            @relation("ParentChild", fields: [ParentId], references: [Id])
+//   Children           Question[]           @relation("ParentChild")
+//   ParentId           Int?
+//   UserCourseProgress UserCourseProgress[]
+//   UserExamProgress   UserExamProgress[]
+// }
+
+// model Options {
+//   Id         Int      @id @default(autoincrement())
+//   Question   Question @relation(fields: [questionId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   questionId Int
+//   Choice     String
+//   Value      Boolean
+
+
+// //  here it was a 1 to many relationship
+// // i turned it to many to many since my brain 
+// // told me that each option has multiple Useranswers
+//   UserExamAnswer UserExamAnswer[]
+
+//   UserCourseAnswer UserCourseAnswer[]
+// }
+
+// // will let me know which question is correct which is not and save that
+// model UserExamAnswer {
+//   id Int @id @default(autoincrement())
+
+//   User   User @relation(fields: [userId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   userId Int
+
+//   Exam   Exam @relation(fields: [examId], references: [Id],onDelete: Cascade)
+//   examId Int
+
+//   Question   Question @relation(fields: [questionId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   questionId Int
+
+//   Choices Options[]
+// }
+
+// model UserCourseAnswer {
+//   id Int @id @default(autoincrement())
+
+//   User   User @relation(fields: [userId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   userId Int
+
+//   cours   Cours @relation(fields: [coursId], references: [Id],onDelete: Cascade)
+//   coursId Int
+
+//   Question   Question @relation(fields: [questionId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+//   questionId Int
+
+//   Choices Options[]
+// }
+
+// // every record represents if a question
+// // is correct or not
+// // so by nature i m grabbing all the
+// // questions where the userid is userid
+// // where the module is 
+// // where the questions are marked as 
+// // correct
+// model UserCourseProgress {
+//   id Int @id @default(autoincrement())
+
+//   user   User @relation(fields: [userId], references: [Id],onDelete: Cascade)
+//   userId Int
+
+//   cours   Cours @relation(fields: [coursId], references: [Id],onDelete: Cascade)
+//   coursId Int
+
+//   question   Question @relation(fields: [questionId], references: [Id],onDelete: Cascade)
+//   questionId Int
+
+//   isCorrect Boolean
+// }
+
+// model UserExamProgress {
+//   id Int @id @default(autoincrement())
+
+//   user   User @relation(fields: [userId], references: [Id],onDelete: Cascade)
+//   userId Int
+
+//   Exam   Exam @relation(fields: [examId], references: [Id],onDelete: Cascade)
+//   examId Int
+
+//   question   Question @relation(fields: [questionId], references: [Id],onDelete: Cascade)
+//   questionId Int
+
+//   isCorrect Boolean
+// }
+
+// // model Date {
+// //   Id       Int       @id @default(autoincrement())
+// //   User     User      @relation(fields: [userId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+// //   Level    PLANS
+// //   Semestre SEMESTERS
+// //   date     DateTime
+// //   userId   Int
+// // }
+
+// // i will do the ranking with the userPoints
+// // i will also do the Titles based on the userPoints
+// // model UserPoints {
+// //   Id Int @id @default(autoincrement())
+
+// //   User   User @relation(fields: [userId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+// //   userId Int
+// //   Points Int
+// // }
+
+// // comments and forum
+// // model forum {
+// //   Id         Int        @id @default(autoincrement())
+// //   question   Question?  @relation(fields: [questionId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+// //   questionId Int?
+// //   Comments   Comments[]
+// // }
+
+// // model Comments {
+// //   Id Int @id @default(autoincrement())
+
+// //   User   User @relation(fields: [userId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+// //   userId Int
+
+// //   forum   forum? @relation(fields: [forumId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+// //   forumId Int?
+
+// //   CreatedAt DateTime @default(now())
+// //   UpdatedAt DateTime
+
+// //   Parent   Comments?  @relation("ParentChild", fields: [ParentId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+// //   Children Comments[] @relation("ParentChild")
+// //   ParentId Int?
+// //   Likes    Likes[]
+// // }
+
+// // model Likes {
+// //   User       User     @relation(fields: [userId], references: [Id])
+// //   Comment    Comments @relation(fields: [commentsId], references: [Id])
+// //   userId     Int
+// //   commentsId Int
+
+// //   @@id([userId, commentsId])
+// // }
+
+// // managing bugs/signals area
+// // model Signal {
+// //   Id         Int      @id @default(autoincrement())
+// //   Question   Question @relation(fields: [questionId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+// //   Text       String
+// //   User       User     @relation(fields: [userId], references: [Id])
+// //   questionId Int
+// //   userId     Int
+// // }
+
+// // model Bug {
+// //   Id         Int    @id @default(autoincrement())
+// //   Text       String
+// //   User       User   @relation(fields: [userId], references: [Id])
+// //   questionId Int
+// //   userId     Int
+// // }

@@ -1,0 +1,88 @@
+.app__presentation{
+    background: var(--color-purple-300);
+    display: flex;
+    flex-direction: column;
+}
+
+.app__presentation-feature{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.app__presentation-feature .app__features-container_feature{
+    margin: 0;
+}
+.app__presentation-feature .app__features-container_feature-text{
+    max-width: 700px;
+}
+.app__presentation-title{
+    align-self: center;
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    font-size: 34px; 
+    /* background: linear-gradient(103.22deg, #3974AA 19.5%, #7A35AA 99.55%), #FFFFFF; */
+    /* background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+
+    font-size: 46px; 
+    line-height: 81px;
+    margin: 4rem 0 2rem;
+}
+
+.app__presentation-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 2rem;
+}
+/* Customizing feature component as per needs */
+.app__presentation-container .app__features-container_feature {
+    flex: 1;
+    margin: 1rem;
+    min-width: 210px;
+    display: unset;
+    flex-direction: column;
+}
+
+/* Customizing feature component as per needs */
+.app__presentation-container .app__features-container_feature-text {
+    margin-top: 0.5rem;
+}
+
+/* @media screen and (max-width: 850px) {
+    .app__presentation-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 0rem;
+    }
+
+    .gpt3__whatgpt3-heading p {
+        margin-top: 1rem;
+    }
+} */
+@media screen and (max-width:733px){
+    /* Customizing feature component as per needs */
+    .app__presentation-feature .app__features-container_feature {
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 650px) {
+    /* Customizing feature component as per needs */
+    .app__presentation-feature .app__features-container_feature-text {
+        margin-top: 0.5rem;
+    }
+
+    .app__presentation-title{
+        font-size: 28px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    /* Customizing feature component as per needs */
+    .app__presentation-container .app__features-container__feature {
+        margin: 1rem 0;
+        min-width: 100%;
+    }
+}

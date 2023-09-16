@@ -1,0 +1,202 @@
+.app__userscontainer{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.app__userscontainer .infos .search{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.app__userscontainer .infos .search .input-container{
+    flex: 1.2;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #E9E9E9;
+    background: #FFF;
+    box-shadow: 6px 8px 16px 0px rgba(0, 0, 0, 0.25);
+    padding: 8px;
+
+}
+
+.app__userscontainer .infos .search .input-container input{
+    flex: 1;
+    padding: 6px;
+    color: #28AD35;
+    font-family: var(--font-roboto);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.365px;
+    border: none;
+    background: none;
+    /* text-transform: capitalize; */
+    
+}
+.app__userscontainer .infos .search .input-container span{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #28AD35;
+    cursor: pointer;
+}
+.app__userscontainer .infos .search .input-container input::placeholder{
+    color: #979797;
+    font-weight: 500;
+
+}
+
+.app__userscontainer .infos .search button{
+    flex: 0.3;
+    border-radius: 8px;
+    background: #C3FFBE;
+    color: #28AD35;
+    font-family: var(--font-poppins);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    padding:  12px;
+    transition: 0.3s all ease;
+    cursor: pointer;
+}
+.app__userscontainer .infos .search button:hover{
+    opacity: 0.4;
+}
+.app__userscontainer .infos .search button:active{
+    transform: scale(1.2);
+}
+.app__userscontainer .infos .filters{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 4rem;
+}
+.app__userscontainer .infos .filters> p{
+    margin-top: 1rem;
+    color: #717171;
+    font-family: var(--font-poppins);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.app__userscontainer .infos .filters > p > span{
+    text-decoration: underline;
+}
+.app__userscontainer .infos .filters .container {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+    justify-content: space-between;
+}
+.app__userscontainer .infos .filters .container .line{
+    border: 1px solid rgb(172, 172, 172);
+    align-self: center;
+    border-radius: 2px;
+    min-height: 50px;
+} 
+.app__userscontainer .infos .filters .filter{
+    width: 100px;
+    height: 100px;
+    color: #28AD35;
+    font-family: var(--font-poppins);
+    font-weight: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.app__userscontainer .infos .filters .filter:active{
+    transform: scale(1.7);
+}
+.app__userscontainer .infos .filters .filter-active{
+    color: #C7FFBE;
+    background-color: #28AD35;
+}
+
+.app__userscontainer .table{
+    margin-bottom: 3rem;
+    overflow: hidden;
+    box-shadow: 12px -16px 31px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+
+
+}
+.app__userscontainer .table .wrapper{
+    max-height:500px ;
+    overflow-y: scroll;
+    background:transparent;
+    padding: 0;
+}
+.app__userscontainer .table .wrapper::-webkit-scrollbar-thumb{
+    background-color: #28AD35ef;
+
+}
+.app__userscontainer .table table{
+    background-color: white;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    border-collapse: collapse;
+    border: 1px solid #D9D9D9;
+
+}
+.app__userscontainer .table table thead{
+    background: #28AD35;
+    color: white;
+}
+/* .app__userscontainer .table table thead tr th{
+    font-family: var(--font-poppins);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: normal;
+} */
+
+.app__userscontainer .table table td,
+.app__userscontainer .table table th{
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 2px;
+    font-family: var(--font-poppins);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: normal;
+}
+.app__userscontainer .table table td{
+    font-weight: 400;
+
+}
+.app__userscontainer .table table tbody tr:nth-child(even){
+    background-color: #E8E8E8;
+}
+.app__userscontainer .table table tbody tr{
+    cursor: pointer;
+}
+.app__userscontainer .table table tbody tr:hover{
+    background-color: #a7a7a7;
+    color: white;
+
+}
+
+
+
+.app__userscontainer .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999; /* Higher z-index than other content */
+    pointer-events: auto;
+}

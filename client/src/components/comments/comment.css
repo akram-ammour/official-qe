@@ -1,0 +1,190 @@
+.app__comments{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+  
+
+
+.app__comments-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.app__comments-top p{
+    font-size: 18px;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+.app__comments-top p:first-child{
+    float: left;
+}
+
+.app__comments-top p:last-child{
+    float: right;
+}
+.app__comments-top span{
+    font-size: 4rem;
+    line-height: 0;
+    cursor: pointer;
+    text-align: center;
+    float: none;
+    position: absolute;
+    top: 0rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.app__comments-comments {
+    position: relative;
+}
+.app__comments-comments .not-available{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: var(--font-poppins);
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+}
+/* 604 */
+
+/* comments */
+.app__comment{
+    margin: 1rem 2rem;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    border: 3px solid #AAA;
+}
+.app__comment .infos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.app__comment .infos .username{
+    color: #B58787;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+.app__comment .infos .date{
+    color: #AAA;
+    font-family: var(--font-poppins);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.4px;
+}
+
+.app__comment .comment {
+    /* max-width: 100%; */
+    text-wrap: wrap;
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.56px;
+}
+
+.app__comment .reaction {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+    gap: 10px;
+}
+.app__comment .reaction .icon-number {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.app__comment .reaction .icon-number p {
+    color: #898787;
+    font-family: var(--font-poppins);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.36px;
+}
+.app__comment .reaction span {
+    color: #A04B47;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+.app__comment .reaction span:hover{
+    opacity: 0.6;
+}
+
+
+
+
+
+@media screen and (max-width:604px){
+    .app__comments-top p{
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width:390px) {
+    .app__comment .comment {
+        font-size: 12px;
+    }
+    
+}
+@media screen and (max-width:562px) {
+    .app__comment .comment {
+        font-size: 14px;
+    }
+    
+    .app__comment .infos .username{
+        font-size: 14px;
+    }
+    .app__comment .infos .date{
+        font-size: 13px;
+    }
+    .app__comment .reaction .icon-number p {
+        font-size: 16px;
+    }
+    .app__comment .reaction span {
+
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width:889px) {
+    .app__comment{
+        margin: 1rem 0;
+        border-radius: 15px;
+        padding: 0.5rem 1rem;
+
+    }
+    .app__comment .comment {
+        font-size: 16px;
+    }
+    
+    .app__comment .infos .username{
+        font-size: 14px;
+    }
+    .app__comment .infos .date{
+        font-size: 13px;
+    }
+    .app__comment .reaction .icon-number p {
+        font-size: 16px;
+    }
+    .app__comment .reaction span {
+
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,396 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Cours {
+  Id       Int        @id @default(autoincrement())
+  title    String     @unique(map: "Cours_title_key")
+  moduleId Int
+  module   module     @relation(fields: [moduleId], references: [Id], onDelete: Cascade, map: "Cours_moduleId_fkey")
+  question question[]
+
+  @@index([moduleId], map: "Cours_moduleId_fkey")
+}
+
+model exam {
+  Id       Int          @id @default(autoincrement())
+  Year     Int
+  Session  exam_Session
+  ModuleId Int
+  module   module       @relation(fields: [ModuleId], references: [Id], onDelete: Cascade, map: "Exam_ModuleId_fkey")
+  question question[]
+
+  @@index([ModuleId], map: "Exam_ModuleId_fkey")
+}
+
+model module {
+  Id       Int             @id @default(autoincrement())
+  Semester module_Semester
+  Title    String
+  Icon     String
+  Year     module_Year
+  color    module_color    @default(RED)
+  cours    Cours[]
+  exam     exam[]
+  points   points[]
+}
+
+model options {
+  Id               Int                @id @default(autoincrement())
+  questionId       Int
+  Choice           String
+  Value            Boolean
+  question         question           @relation(fields: [questionId], references: [Id], onDelete: Cascade, map: "Options_questionId_fkey")
+  usercourseanswer usercourseanswer[] @relation("optionstousercourseanswer")
+  userexamanswer   userexamanswer[]   @relation("optionstouserexamanswer")
+
+  @@index([questionId], map: "Options_questionId_fkey")
+}
+
+model points {
+  Id          Int    @id @default(autoincrement())
+  totalPoints BigInt
+  userId      Int
+  moduleId    Int
+  module      module @relation(fields: [moduleId], references: [Id], map: "Points_moduleId_fkey")
+  user        user   @relation(fields: [userId], references: [Id], map: "Points_userId_fkey")
+
+  @@index([moduleId], map: "Points_moduleId_fkey")
+  @@index([userId], map: "Points_userId_fkey")
+}
+
+model question {
+  Id               Int                @id @default(autoincrement())
+  Text             String
+  CasClinique      String?
+  Number           Int
+  CoursId          Int
+  ExamId           Int
+  Image            String?
+  ParentId         Int?
+  options          options[]
+  cours            Cours              @relation(fields: [CoursId], references: [Id], onDelete: Cascade, map: "Question_CoursId_fkey")
+  exam             exam               @relation(fields: [ExamId], references: [Id], onDelete: Cascade, map: "Question_ExamId_fkey")
+  question         question?          @relation("questionToquestion", fields: [ParentId], references: [Id], map: "Question_ParentId_fkey")
+  other_question   question[]         @relation("questionToquestion")
+  usercourseanswer usercourseanswer[]
+  userexamanswer   userexamanswer[]
+
+  @@index([CoursId], map: "Question_CoursId_fkey")
+  @@index([ExamId], map: "Question_ExamId_fkey")
+  @@index([ParentId], map: "Question_ParentId_fkey")
+}
+
+model user {
+  Id               Int                @id @default(autoincrement())
+  Fname            String
+  Lname            String
+  Email            String             @unique(map: "User_Email_key")
+  Password         String
+  Plan             user_Plan
+  Semester1        Boolean            @default(true)
+  Semester2        Boolean            @default(false)
+  Subscription     user_Subscription  @default(FREE)
+  points           points[]
+  usercourseanswer usercourseanswer[]
+  userexamanswer   userexamanswer[]
+}
+
+model usercourseanswer {
+  id         Int       @id @default(autoincrement())
+  userId     Int
+  questionId Int
+  coursId    Int
+  question   question  @relation(fields: [questionId], references: [Id], onDelete: Cascade, map: "UserCourseAnswer_questionId_fkey")
+  user       user      @relation(fields: [userId], references: [Id], onDelete: Cascade, map: "UserCourseAnswer_userId_fkey")
+  options    options[] @relation("optionstousercourseanswer")
+
+  @@index([coursId], map: "UserCourseAnswer_coursId_fkey")
+  @@index([questionId], map: "UserCourseAnswer_questionId_fkey")
+  @@index([userId], map: "UserCourseAnswer_userId_fkey")
+}
+
+model usercourseprogress {
+  id         Int     @id @default(autoincrement())
+  userId     Int
+  coursId    Int
+  questionId Int
+  isCorrect  Boolean
+
+  @@index([coursId], map: "UserCourseProgress_coursId_fkey")
+  @@index([questionId], map: "UserCourseProgress_questionId_fkey")
+  @@index([userId], map: "UserCourseProgress_userId_fkey")
+}
+
+model userexamanswer {
+  id         Int       @id @default(autoincrement())
+  userId     Int
+  questionId Int
+  examId     Int
+  question   question  @relation(fields: [questionId], references: [Id], onDelete: Cascade, map: "UserExamAnswer_questionId_fkey")
+  user       user      @relation(fields: [userId], references: [Id], onDelete: Cascade, map: "UserExamAnswer_userId_fkey")
+  options    options[] @relation("optionstouserexamanswer")
+
+  @@index([examId], map: "UserExamAnswer_examId_fkey")
+  @@index([questionId], map: "UserExamAnswer_questionId_fkey")
+  @@index([userId], map: "UserExamAnswer_userId_fkey")
+}
+
+model userexamprogress {
+  id         Int     @id @default(autoincrement())
+  userId     Int
+  examId     Int
+  questionId Int
+  isCorrect  Boolean
+
+  @@index([examId], map: "UserExamProgress_examId_fkey")
+  @@index([questionId], map: "UserExamProgress_questionId_fkey")
+  @@index([userId], map: "UserExamProgress_userId_fkey")
+}
+
+enum module_Semester {
+  SEMESTER1
+  SEMESTER2
+}
+
+enum exam_Session {
+  N
+  R
+  E
+}
+
+enum module_Year {
+  FIRST
+  SECOND
+  THIRD
+  FOURTH
+  FIFTH
+}
+
+enum module_color {
+  RED
+  BLUE
+  GREEN
+  PURPLE
+  BLACK
+  YELLOW
+  ORANGE
+  LIGHTBLUE
+}
+
+enum user_Plan {
+  FIRST
+  SECOND
+  THIRD
+  FOURTH
+  FIFTH
+}
+
+enum user_Subscription {
+  FREE
+  PAID
+  PLUS
+}
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "mysql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model cours {
+//   Id       Int        @id @default(autoincrement())
+//   title    String     @unique(map: "Cours_title_key")
+//   moduleId Int
+//   module   module     @relation(fields: [moduleId], references: [Id], onDelete: Cascade, map: "Cours_moduleId_fkey")
+//   question question[]
+
+//   @@index([moduleId], map: "Cours_moduleId_fkey")
+// }
+
+// model exam {
+//   Id       Int          @id @default(autoincrement())
+//   Year     Int
+//   Session  exam_Session
+//   ModuleId Int
+//   module   module       @relation(fields: [ModuleId], references: [Id], onDelete: Cascade, map: "Exam_ModuleId_fkey")
+//   question question[]
+
+//   @@index([ModuleId], map: "Exam_ModuleId_fkey")
+// }
+
+// model module {
+//   Id       Int             @id @default(autoincrement())
+//   Semester module_Semester
+//   Title    String
+//   Icon     String
+//   Year     module_Year
+//   color    module_color    @default(RED)
+//   cours    cours[]
+//   exam     exam[]
+//   points   points[]
+// }
+
+// model options {
+//   Id               Int                @id @default(autoincrement())
+//   questionId       Int
+//   Choice           String
+//   Value            Boolean
+//   question         question           @relation(fields: [questionId], references: [Id], onDelete: Cascade, map: "Options_questionId_fkey")
+//   usercourseanswer usercourseanswer[] @relation("optionstousercourseanswer")
+//   userexamanswer   userexamanswer[]   @relation("optionstouserexamanswer")
+
+//   @@index([questionId], map: "Options_questionId_fkey")
+// }
+
+// model points {
+//   Id          Int    @id @default(autoincrement())
+//   totalPoints BigInt
+//   userId      Int
+//   moduleId    Int
+//   module      module @relation(fields: [moduleId], references: [Id], map: "Points_moduleId_fkey")
+//   user        user   @relation(fields: [userId], references: [Id], map: "Points_userId_fkey")
+
+//   @@index([moduleId], map: "Points_moduleId_fkey")
+//   @@index([userId], map: "Points_userId_fkey")
+// }
+
+// model question {
+//   Id               Int                @id @default(autoincrement())
+//   Text             String
+//   CasClinique      String?
+//   Number           Int
+//   CoursId          Int
+//   ExamId           Int
+//   Image            String?
+//   ParentId         Int?
+//   options          options[]
+//   cours            cours              @relation(fields: [CoursId], references: [Id], onDelete: Cascade, map: "Question_CoursId_fkey")
+//   exam             exam               @relation(fields: [ExamId], references: [Id], onDelete: Cascade, map: "Question_ExamId_fkey")
+//   question         question?          @relation("questionToquestion", fields: [ParentId], references: [Id], map: "Question_ParentId_fkey")
+//   other_question   question[]         @relation("questionToquestion")
+//   usercourseanswer usercourseanswer[]
+//   userexamanswer   userexamanswer[]
+
+//   @@index([CoursId], map: "Question_CoursId_fkey")
+//   @@index([ExamId], map: "Question_ExamId_fkey")
+//   @@index([ParentId], map: "Question_ParentId_fkey")
+// }
+
+// model user {
+//   Id               Int                @id @default(autoincrement())
+//   Fname            String
+//   Lname            String
+//   Email            String             @unique(map: "User_Email_key")
+//   Password         String
+//   Plan             user_Plan
+//   Semester1        Boolean            @default(true)
+//   Semester2        Boolean            @default(false)
+//   Subscription     user_Subscription  @default(FREE)
+//   points           points[]
+//   usercourseanswer usercourseanswer[]
+//   userexamanswer   userexamanswer[]
+// }
+
+// model usercourseanswer {
+//   id         Int       @id @default(autoincrement())
+//   userId     Int
+//   questionId Int
+//   coursId    Int
+//   question   question  @relation(fields: [questionId], references: [Id], onDelete: Cascade, map: "UserCourseAnswer_questionId_fkey")
+//   user       user      @relation(fields: [userId], references: [Id], onDelete: Cascade, map: "UserCourseAnswer_userId_fkey")
+//   options    options[] @relation("optionstousercourseanswer")
+
+//   @@index([coursId], map: "UserCourseAnswer_coursId_fkey")
+//   @@index([questionId], map: "UserCourseAnswer_questionId_fkey")
+//   @@index([userId], map: "UserCourseAnswer_userId_fkey")
+// }
+
+// model usercourseprogress {
+//   id         Int     @id @default(autoincrement())
+//   userId     Int
+//   coursId    Int
+//   questionId Int
+//   isCorrect  Boolean
+
+//   @@index([coursId], map: "UserCourseProgress_coursId_fkey")
+//   @@index([questionId], map: "UserCourseProgress_questionId_fkey")
+//   @@index([userId], map: "UserCourseProgress_userId_fkey")
+// }
+
+// model userexamanswer {
+//   id         Int       @id @default(autoincrement())
+//   userId     Int
+//   questionId Int
+//   examId     Int
+//   question   question  @relation(fields: [questionId], references: [Id], onDelete: Cascade, map: "UserExamAnswer_questionId_fkey")
+//   user       user      @relation(fields: [userId], references: [Id], onDelete: Cascade, map: "UserExamAnswer_userId_fkey")
+//   options    options[] @relation("optionstouserexamanswer")
+
+//   @@index([examId], map: "UserExamAnswer_examId_fkey")
+//   @@index([questionId], map: "UserExamAnswer_questionId_fkey")
+//   @@index([userId], map: "UserExamAnswer_userId_fkey")
+// }
+
+// model userexamprogress {
+//   id         Int     @id @default(autoincrement())
+//   userId     Int
+//   examId     Int
+//   questionId Int
+//   isCorrect  Boolean
+
+//   @@index([examId], map: "UserExamProgress_examId_fkey")
+//   @@index([questionId], map: "UserExamProgress_questionId_fkey")
+//   @@index([userId], map: "UserExamProgress_userId_fkey")
+// }
+
+// enum module_Semester {
+//   SEMESTER1
+//   SEMESTER2
+// }
+
+// enum exam_Session {
+//   N
+//   R
+//   E
+// }
+
+// enum module_Year {
+//   FIRST
+//   SECOND
+//   THIRD
+//   FOURTH
+//   FIFTH
+// }
+
+// enum module_color {
+//   RED
+//   BLUE
+//   GREEN
+//   PURPLE
+//   BLACK
+//   YELLOW
+//   ORANGE
+//   LIGHTBLUE
+// }
+
+// enum user_Plan {
+//   FIRST
+//   SECOND
+//   THIRD
+//   FOURTH
+//   FIFTH
+// }
+
+// enum user_Subscription {
+//   FREE
+//   PAID
+//   PLUS
+// }

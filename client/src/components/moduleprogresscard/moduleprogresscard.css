@@ -1,0 +1,123 @@
+.app__moduleprogresscard{
+    width: 370px;
+    height: 150px;
+    background-color: #1F1E25;
+    border-radius: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem;
+}
+.app__moduleprogresscard > span{
+    font-size: 5rem;
+    color: white;
+    transform: rotate(30deg);
+}
+
+.app__moduleprogresscard-text_sub{
+    color: #4C4F66;
+    font-size: 16px;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    letter-spacing: 0.64px;
+}
+.app__moduleprogresscard-text_title{
+    color: #FFF;
+    font-size: 35px;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    letter-spacing: 1.44px;
+}
+.app__moduleprogresscard-text_score{
+    font-size: 19px;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    letter-spacing: 0.88px;
+
+}
+
+.app__moduleprogresscard-progress{
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+/* @media screen and (max-width:794px) {
+    .app__moduleprogresscard{
+        width: 100%;
+    }
+    .app__moduleprogresscard-text{
+        flex: 1;
+        margin-left: 3rem;
+    }
+} */
+/* @media screen and (max-width:804px) {
+    .app__moduleprogresscard{
+        width: 100%;
+    }
+    .app__moduleprogresscard-text{
+        flex: 1;
+        margin-left: 3rem;
+    }
+} */
+/* 1166 */
+@media screen and (max-width:1299px) {
+    .app__moduleprogresscard{
+        width: 320px;
+    }
+}
+/* 704 */
+@media screen and (max-width:704px) {
+    .app__moduleprogresscard{
+        flex: 1;
+        width: auto;
+        gap: 3rem;
+    }
+
+}
+@media screen and (max-width:473px) {
+    .app__moduleprogresscard{
+
+        gap: 1rem;
+    }
+    .app__moduleprogresscard-text_sub{
+        font-size: 14px;
+    }
+    .app__moduleprogresscard-text_title{
+        font-size: 33px;
+    }
+    .app__moduleprogresscard-text_score{
+        font-size: 17px;
+    
+    }
+
+}
+/* 362 */
+@media screen and (max-width:362px) {
+    .app__moduleprogresscard{
+
+        gap: 10px;
+    }
+    .app__moduleprogresscard-text_sub{
+        font-size: 12px;
+    }
+    .app__moduleprogresscard-text_title{
+        font-size: 31px;
+    }
+    .app__moduleprogresscard-text_score{
+        font-size: 13px;
+    
+    }
+
+}
+
+/* 700
+@media screen and (max-width:700px) {
+    .app__moduleprogresscard{
+        width: auto;
+        gap: 1rem;
+    }
+
+} */

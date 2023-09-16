@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700&display=swap');
+
+
+:root{
+    --font-manrope: "Manrope" , sans-serif;
+    --font-poppins: "Poppins" , sans-serif;
+    --font-roboto: "Roboto" , sans-serif;
+    --font-inter: "Inter" , sans-serif;
+
+    --gradient-text:linear-gradient(89.97deg, #3974AA 1.84%, #380338 102.67%);
+    --gradient-bar:linear-gradient(103.22deg, #3973A9 -13.86%, #381146 99.55%);
+
+    
+    --color-gray-reddish:#808080;
+    --color-gray-blueish:#727D88;
+    --color-gray-purpleish:#67626C;
+    
+    --color-blue-100:#81AFDD;
+    --color-blue-200:#3974AA;
+    
+    --color-bleu-ciel:#189FCA;
+    
+    --color-purple-100:#7A35AA;
+    --color-purple-200:#38194E;
+    --color-purple-300:#1F1229;
+    
+    --color-dark:#151515;
+    
+    --footer-bg:var(--color-purple-300);
+    
+    --btn-bg:var(--color-purple-200);
+
+
+    --scrollbar-thumb-color:var(--color-purple-300);
+    --scrollbar-thumb-color--hover:#1f1229ef;    
+}

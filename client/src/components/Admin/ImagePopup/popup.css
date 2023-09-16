@@ -1,0 +1,205 @@
+.app__imagepopup{
+    position: fixed;
+    top: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 550px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
+    z-index: 9999;
+    animation-name: scaleUp;
+    animation-duration: 0.9s;
+    animation-timing-function: linear;
+}
+@keyframes scaleUp {
+    0% {
+      transform: translateX(-50%) scale(0);
+    }
+    80% {
+      transform: translateX(-50%) scale(1);
+    }
+    90%{
+        transform: translateX(-50%) scale(1.1);
+    }
+    }
+    
+.app__imagepopup .title-pannel{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.app__imagepopup .title-pannel > span {
+    color: black;
+    font-size: 40px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+.app__imagepopup .title-pannel > span:hover{
+    opacity: 0.5;
+}
+.app__imagepopup .title{
+    color: black;
+    font-family: var(--font-poppins);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.app__imagepopup .divider{
+    border: 1px solid rgba(0, 0, 0, 0.368);
+    opacity: 0.4;
+    margin-top: 5px ;
+    margin-bottom: 10px ;
+}
+.app__imagepopup .text{
+    color: #FFF;
+    font-family: var(--font-poppins);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    height: 90%;
+    overflow-y: scroll;
+    padding-right: 10px;
+    line-height: 1.5;
+}
+
+.app__editcontainer-content_exams .imageOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999; /* Higher z-index than other content */
+    pointer-events: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.app__imagepopup .container{    
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: white;
+    height: 70%;
+}
+.app__imagepopup .container .right,
+.app__imagepopup .container .left{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app__imagepopup .container .vline{
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2px  ;
+    background-color: rgba(0, 0, 0, 0.368);
+    border-radius: 20px;
+}
+.app__imagepopup button{
+    display: block;
+    margin: 1rem auto;
+    cursor: pointer;
+}
+
+    .app__imagepopup .container .left{
+        width: 280px;
+        height: 280px;
+        border-radius: 5px;
+        border: 2px dashed #06F;
+        color: #06F;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        -webkit-user-select: none;
+        font-family: var(--font-poppins);
+        /* margin-top: 10px; */
+      }
+    .app__imagepopup .container .left .visible{
+        font-size: 18px;
+        font-family: var(--font-poppins);
+    }
+    .app__imagepopup .container .left .select{
+        color: #39405d;
+        margin-left: 5px;
+        cursor: pointer;
+        transition: 0.4s;
+        font-size: 18px;
+    }
+    .app__imagepopup .container .left .select:hover{
+        opacity: 0.6;
+    }
+    .app__imagepopup .container .left input,
+    .app__imagepopup .container .left .on-drop,
+    .app__imagepopup .container .left .dragover .visible{
+        display: none;
+    }
+.app__imagepopup .container .shown-result {
+    max-width: 450px;
+    max-height: 380px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgb(236, 236, 236);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .app__imagepopup .container .shown-result:hover {
+    transform: scale(0.9);
+    box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.2), -8px -8px 12px rgb(236, 236, 236);
+  }
+
+  .app__imagepopup .container .shown-result .close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    transition: 0.3s all ease;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 2rem;
+  }
+  .app__imagepopup .container .shown-result .close:hover{
+    opacity: 1;
+  }
+
+  .app__imagepopup .container .shown-result img{
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
+
+  .app__imagepopup button {
+    padding: 4px 8px;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    border-radius: 5px;
+    border: none;
+    background: #FFBEBE;
+    color: rgb(195, 47, 47);
+    font-size: 18px;
+    line-height: normal;
+    transition: 0.3s all ease;
+}
+.app__imagepopup button:hover{
+    opacity: 0.5;
+    transform: scale(1.2);
+}
+  .app__imagepopup .upload {
+    background: #c3ffbe;
+    color: #218a2b;
+}

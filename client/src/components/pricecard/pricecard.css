@@ -1,0 +1,148 @@
+.app__pricecard{
+    padding: 0 2rem 1rem;
+    max-width: 426px ;
+    min-height: 502px;
+    border: 3px solid #C8C8C8;
+    border-radius: 19px;
+}
+.popular-card{
+    background-color:var(--color-purple-300);
+    border: none;
+}
+.app__pricecard-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.app__pricecard-type h4 {
+    font-family: var(--font-manrope);
+    font-weight: 800;
+    font-size: 33px;
+    line-height: 62px;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
+
+    color: var(--color-blue-200);
+}
+.app__pricecard-type p{
+    padding: 0.4rem 1rem;
+    font-family: var(--font-roboto);
+    font-weight: 400;
+    font-size: 14px;
+    background: var(--color-blue-200);
+    border-radius: 2rem;
+}
+
+.app__pricecard-price{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.app__pricecard-price h1{
+    font-family: var(--font-roboto);
+    font-weight: 400;
+    font-size: 50px;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
+
+    color: black;
+}
+.app__pricecard-price span{
+    font-size: 22px;
+}
+.app__pricecard-price_duration{
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
+    color: var(--color-gray-reddish);
+}
+.app__pricecard-subscribe{
+    display: block;
+    background: var(--color-purple-300);
+    border-radius: 7px;
+    font-family: var(--font-roboto);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+
+}
+.app__pricecard-subscribe:hover{
+    opacity: 0.7;
+    transition: 400ms all ease;
+}
+.btn-popular{
+    background: var(--color-blue-200);
+}
+.app__pricecard-line{
+    border: 1px solid #939393;
+}
+
+.app__pricecard-features h2{
+    font-family: var(--font-manrope);
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 52px;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
+    color: #000000;
+
+} 
+.popular-card .app__pricecard-features h2{
+    color: #F4F4F4;
+}
+.popular-card .app__pricecard-price h1{
+    color: white;
+}
+.app__pricecard-features_description{
+    font-family: var(--font-manrope);
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: justify;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
+    color: var(--color-gray-purpleish);
+}
+/* 340 */
+@media screen and (max-width:395px){
+    .app__pricecard-type h4 {
+        font-size: 28px;
+        line-height: 45px;
+    }
+    .app__pricecard-type p{
+        padding: 0.4rem 1rem;
+        font-size: 12px;
+        border-radius: 2rem;
+    }
+    
+    .app__pricecard-price h1{
+        font-size: 34px;
+    }
+    .app__pricecard-price span{
+        font-size: 20px;
+    }
+    .app__pricecard-price_duration{
+
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .app__pricecard-features h2{
+        font-size: 22px;
+        line-height: 42px;
+    }
+    .app__pricecard-features_description{
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+}

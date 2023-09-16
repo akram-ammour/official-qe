@@ -1,0 +1,50 @@
+.middle .option{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+.middle .option .checkbox {
+    flex: 20;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+.middle .option .checkbox input { 
+    min-width: 20px;
+    min-height: 20px;
+    cursor: pointer;
+}
+.middle .option .checkbox div{
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: normal;
+}
+
+.middle .option .btns{
+    margin-left: 5px;
+    flex: 1;
+    display: flex;
+    align-self: flex-start;
+    gap: 5px;
+}
+.middle .option .btns button{
+    border: 2px solid #0066FF;
+    background-color: white;
+    color: #0066FF;
+    padding: 0.2rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.middle .option .btns button:hover{
+    opacity: 0.7;
+}
+.middle .option .btns button:active{
+    transform: scale(1.2);
+
+}

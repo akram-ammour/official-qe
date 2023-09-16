@@ -1,0 +1,28 @@
+.app__lineprogress{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 0.8rem 0 ;
+}
+.app__lineprogress .title_percentage{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.app__lineprogress .title_percentage p{
+    font-size: 16px;
+    font-family: var(--font-poppins);
+
+}
+.app__lineprogress .grey{
+    width: 100%;
+    height: 10px;
+    border-radius: 40px;
+    background: #DFDFDF;
+}
+.app__lineprogress .progress{
+    height: 100%;
+    border-radius: 40px;
+    background: #7E3737;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}

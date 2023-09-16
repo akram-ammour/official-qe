@@ -1,0 +1,42 @@
+.app__customtextarea{
+    position: relative;
+    width: 100%;
+}
+.app__customtextarea textarea{
+    width: 100%;
+    height: 59px;
+    padding: 10px ;
+    border: 3px solid rgba(0, 0, 0, 0.6);;
+    border-radius: 12px;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    color: var(--color-purple-200);
+    font-size: 1em ;
+    caret-color:var(--color-purple-200);
+    resize: none;
+}
+.app__customtextarea span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.6);;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    transition: 0.5s;
+}
+.app__customtextarea textarea::-webkit-scrollbar{
+    width: 0;
+
+}
+.app__customtextarea textarea:is(:focus,:valid) ~span{
+    color: var(--color-purple-200) ;
+    transform: translateX(20px) translateY(-7px);
+    background-color: white;
+    padding: 0;
+    font-size: 0.6em;
+}
+.app__customtextarea textarea:is(:valid,:focus){
+    border: 3px solid var(--color-purple-200);
+}

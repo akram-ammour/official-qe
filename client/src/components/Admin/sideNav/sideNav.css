@@ -1,0 +1,155 @@
+.app__sidenav{
+    height: 100vh;
+    display: flex;
+}
+
+.app__sidenav-sidebarcontainer{
+    position: sticky;
+    background-color: #f0f0f0; 
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #FFF;
+    box-shadow: 2px 4px 22px 0px rgba(0, 0, 0, 0.25);
+    height: 100%;
+}
+.app__sidenav-sidebarcontainer .btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+.app__sidenav-sidebarcontainer .btns .btn{
+    color: #BDBDBD;
+    padding: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+.app__sidenav-sidebarcontainer .btns .btn:nth-child(1):hover{
+    background-color: #EEBEFF;
+    color: #C738B9;
+}
+.app__sidenav-sidebarcontainer .btns .btn:nth-child(2):hover{
+    background-color: #BED8FF;
+    color: #0066FF;
+}
+.app__sidenav-sidebarcontainer .btns .btn:nth-child(3):hover{
+    background-color: #C7FFBE;
+    color: #28AD35;
+}
+.app__sidenav-sidebarcontainer .btns .btn:nth-child(4):hover{
+
+    background-color: #FFBEBE;
+    color: #AD2828;
+}
+.app__sidenav-sidebarcontainer .btns .btn:nth-child(4) span{
+    transition: 0.3s all ease;
+}
+.app__sidenav-sidebarcontainer .btns .btn:nth-child(4):hover > span:nth-child(2){
+    background-color: #FF3232;
+}
+.app__sidenav-sidebarcontainer .btns .btn:last-child:hover{
+    background-color: #eeda96;
+    color: #826604;
+}
+/* .app__sidenav-sidebarcontainer .btns  .active{
+    background-color: #BED8FF;
+    color: #0066FF;
+} */
+
+
+
+
+.app__sidenav-sidebarcontainer .btns .btn span:first-child{
+    font-size: 1.8rem;
+}
+.app__sidenav-sidebarcontainer .btns .btn:nth-child(4){
+    position: relative;
+}
+.app__sidenav-sidebarcontainer .btns .btn:nth-child(4) span:nth-child(2){
+    position:absolute;
+    top: -7px;
+    right: -7px;
+    width: 17px; 
+    height: 17px; 
+    border-radius: 50%; 
+    color: #fff; 
+    text-align: center;
+    font-size: 10px; 
+    padding: 1px;
+    font-family: var(--font-poppins);
+    /* background-color: #f00; Change this to set the background color of the circle */
+    background-color: #BDBDBD;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.app__sidenav-navbarcontainer{
+    flex: 1;
+    padding: 0.8rem 2rem;
+    
+}
+.app__sidenav-navbarcontainer .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.app__sidenav-navbarcontainer .nav .left h1{
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: normal;
+}
+.app__sidenav-navbarcontainer .nav .left p,
+.app__sidenav-navbarcontainer .nav .right p{
+    color: #717171;
+    font-family: var(--font-poppins);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: normal;
+}
+.app__sidenav-navbarcontainer .nav .right{
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+}
+.app__sidenav-navbarcontainer .nav .right h3{
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 17px;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+.app__sidenav-navbarcontainer .nav .right .img{
+    width: 50px;
+    height: 50px;
+}
+.app__sidenav-navbarcontainer .nav .right .img img{
+    width: 100%;
+    height: 100%;
+}
+    

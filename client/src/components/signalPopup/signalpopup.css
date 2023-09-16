@@ -1,0 +1,153 @@
+.app__signalpopup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-20%) scale(1);
+    background-color: white;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    border-top: 7px solid ;
+    padding: 7px 9px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    min-width: 400px;
+    animation-name: scaleUp;
+    animation-duration: 1s;
+  }
+  
+  @keyframes scaleUp {
+    from {
+      transform: translate(-50%,-20%) scale(0);
+    }
+    to {
+      transform: translate(-50%,-20%) scale(1);
+    }
+  }
+  
+.app__signalpopup-pannel{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem ;
+}
+.app__signalpopup-pannel p{
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    font-size: 18px;
+    font-weight: 500;
+}
+.app__signalpopup-pannel > span{
+    font-weight: 500;
+    font-size: 30px;
+    font-weight: 800;
+    cursor: pointer;
+}
+.app__signalpopup-content{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+}
+.app__signalpopup-content > span{
+    padding: 0.4rem;
+    color: white;
+    font-size: 5rem;
+    border-radius: 50%;
+
+}
+.app__signalpopup-content_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.app__signalpopup-content_text  p{
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    text-align: justify;
+
+}
+.app__signalpopup-content_text .tabs {
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.app__signalpopup-content_text textarea{
+    width: 100%;
+    min-height: 100px;
+    max-height: 200px;
+    padding: 10px;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+}
+
+.app__signalpopup-content_text textarea::-webkit-scrollbar{
+    display: none;
+}
+
+.app__signalpopup-content_text button{
+    border-radius: 10px;
+    border: none;
+    background: white;
+    padding: 0.7rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+.app__signalpopup-content_text .send{
+    color: white;
+    transition: 0.3s all ease;
+}
+.app__signalpopup-content_text .send:hover{
+opacity: 0.6;
+}
+.app__signalpopup-content_text .send:active{
+    transform: scale(1.2);
+}
+
+@media screen and (max-width:603px){
+    .app__signalpopup{
+        max-width: none;
+        min-width: 280px;
+    }
+    .app__signalpopup-pannel > p{
+
+        font-size: 16px;
+    }
+    .app__signalpopup-pannel> span{
+        font-size: 20px;
+    }
+
+    .app__signalpopup-content >span{
+        padding: 0.2rem;
+        font-size: 3rem;
+    }
+
+    .app__signalpopup-content_text  p{
+        font-size: 14px;
+    }
+    .app__signalpopup-content_text .tabs {
+        font-size: 13px;
+    }
+    .app__signalpopup-content_text textarea{
+
+        font-size: 14px;
+    }
+    .app__signalpopup-content_text button{
+        padding: 0.6rem 1.1rem;
+        font-size: 14px;
+    }
+
+}

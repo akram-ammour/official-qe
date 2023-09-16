@@ -1,0 +1,679 @@
+.app__editcontainer{
+    margin-top: 1rem;
+}
+.app__editcontainer-tabs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7rem;
+}
+.app__editcontainer-tabs_tab{
+    color: #717171;
+    font-family: var(--font-poppins);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer ;
+}
+.app__editcontainer-tabs .active {
+    font-weight: 800;
+}
+.app__editcontainer-tabs_divider{
+    border: 1px solid grey;
+    height: 1rem;
+}
+
+
+.app__editcontainer-content_cours{
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+.app__editcontainer-content_cours-left,
+.app__editcontainer-content_cours-right{
+    flex: 1;
+}
+.app__editcontainer-content_cours-right h2,
+.app__editcontainer-content_cours-left h2{
+    font-family: var(--font-poppins);
+    text-align: center;
+    color: #0066FF;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+
+}
+
+.app__editcontainer-content_cours .vline{
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app__editcontainer-content_cours-left{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.app__editcontainer-content_cours-left select{
+    border:  2px solid #0066FF ;
+    color: #0066FF;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+
+}
+.app__editcontainer-content_cours-left input{
+    border:  2px solid #0066FF ;
+    color: #0066FF;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+}
+.app__editcontainer-content_cours-left_btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.app__editcontainer-content_cours-left_btns button{
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    background-color: #0066FF;
+    border: none;
+    color: white;
+    cursor:  pointer;
+    transition: 300ms all ease;
+}
+.app__editcontainer-content_cours-left_btns button:first-child{
+    background-color: white;
+    border:2px solid #0066FF ;
+    color: #0066FF;
+}
+.app__editcontainer-content_cours-left_btns button:hover{
+    opacity: 0.5;
+}
+
+
+
+.app__editcontainer-content_cours-right_container{
+    overflow-y: scroll;
+    height: 400px;
+    padding-right: 20px;
+}
+.app__editcontainer-content_cours-right_container::-webkit-scrollbar-thumb{
+    background-color: #0066FF;
+}
+
+
+
+
+.app__editcontainer-content_cours-right .cours{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+
+.app__editcontainer-content_cours-right .cours p {
+    font-size: 18px;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    color: #717171;
+}
+.app__editcontainer-content_cours-right .cours p span{
+    padding: 0.2rem 1rem;
+    padding-left: 0;
+}
+
+.app__editcontainer-content_cours-right .cours .btns{
+    display: flex;
+    gap: 10px;
+}
+.app__editcontainer-content_cours-right .cours .btns button{
+    border: 2px solid #0066FF;
+    background-color: white;
+    color: #0066FF;
+    padding: 0.2rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 0.8rem;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+.app__editcontainer-content_exams{
+    position: relative;
+}
+
+.app__editcontainer-content_exams .buttons-container{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+    margin-right: 2rem;
+}
+.app__editcontainer-content_exams .buttons-container button{
+    border-radius: 8px;
+    background: #C3FFBE;
+    color: #28AD35;
+    font-family: var(--font-poppins);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    padding:  12px;
+    transition: 0.3s all ease;
+    cursor: pointer;
+    width: 160px;
+
+}
+.app__editcontainer-content_exams .buttons-container .delete{
+    color: #9f1111b3;
+    background-color: #FFBEBE;
+}
+.app__editcontainer-content_exams .buttons-container button:hover{
+    opacity: 0.5;
+}
+.app__editcontainer-content_exams .infos{
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 1rem;
+}
+
+.app__editcontainer-content_exams .infos .exam-infos{
+    flex: 0.5;
+    border-radius: 14px;
+    border: 1px solid #E9E9E9;
+    background: #FFF;
+    box-shadow: 9px 8px 36px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 3rem;
+    min-height: 250px;
+
+}
+.app__editcontainer-content_exams .infos .exam-infos .select{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app__editcontainer-content_exams .infos .exam-infos .select p,
+.app__editcontainer-content_exams .infos .exam-infos .select select{
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: normal;
+
+
+}
+.app__editcontainer-content_exams .infos .exam-infos .select select{
+    width: 270px;
+    border-radius: 8px;
+    border: 2px solid #C7C7C7;
+    padding: 2px 8px;
+
+}
+
+.app__editcontainer-content_exams .infos .exam-infos .checkbox{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.app__editcontainer-content_exams .infos .exam-infos .checkbox p {
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: normal;
+}
+.app__editcontainer-content_exams .infos .exam-infos .checkbox input{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.app__editcontainer-content_exams .infos .exam-notes{
+    flex: 1;
+    border-radius: 14px;
+    background: #06F;
+    box-shadow: 25px 38px 79px 0px #BED8FF;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s all ease;
+}
+
+.app__editcontainer-content_exams .infos .exam-notes .inner{
+    border: 5px solid #FFF;
+    background: rgba(217, 217, 217, 0.00);
+    padding: 4rem 20rem;
+    border-radius: 14px;
+    color: #FFF;
+    font-family: var(--font-poppins);
+    font-size: 48px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.app__editcontainer-content_exams .infos .exam-notes:hover{
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+
+.app__editcontainer-content_exams .questions-container{
+    margin-top: 2rem;
+}
+
+
+.question-add-button{
+    position: fixed;
+    bottom: 10px;
+    right: 50%;
+    transform: translateX(50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    border-radius: 8px;
+    background: #06F;
+    color: #FFF;
+    font-family: var(--font-poppins);
+    font-size: 21px;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0.3rem 1rem;
+    border: none;
+    opacity: 0.1;
+    transition: 0.3s all ease;
+    cursor: pointer;
+}
+.question-add-button:hover{
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+.questions-container .uniqueExamTitle{
+    width:890px;
+    padding: 0.5rem 10px;
+    color: #0066FF  ;
+    font-family: var(--font-roboto);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.365px;
+    border: none;
+    background: none;
+    text-transform: capitalize;
+}
+
+.questions-container .uniqueExamTitle::placeholder{
+    color: #979797;
+    font-weight: 500;
+
+}
+
+.questions-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 5rem;
+}
+.question-component .casClinique{
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    word-wrap: break-word;
+    max-width: 720px;
+}
+.question-component .casClinique textarea {
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    word-wrap: break-word;
+    width: 720px;
+    text-align: justify;
+    background-color: none;
+    resize: vertical;
+    border: none;
+    min-height: 50px;
+    max-height: 200px;
+    padding-right: 10px;
+    width: 760px;
+    margin-left: 1rem ;
+}
+.questions-container .question-component{
+    margin-top: 1rem;
+    width: 890px;
+    background-color: #FFF;
+    border: 3px solid #9090906d ;
+    filter: drop-shadow(9px 8px 10px rgba(0, 0, 0, 0.25));
+    padding: 2rem 2rem;
+    border-radius: 10px;
+    transition: 300ms all ease;
+
+}
+.question-component .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.question-component .separator{
+    border: 1px solid grey;
+    margin: 1rem 0;
+}
+.top .text-content{
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    max-width: 100%;
+}
+.top .text-content .Number {
+    color:#06F;
+    font-weight: 600;
+}
+.top .icons > span {
+    color:#06F;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+.top .icons > .image-exists {
+    color: #e1b519 !important;
+    /* background-color: #e1b519 !important; */
+}
+.top .icons > span:hover {
+    opacity: 0.8;
+}
+.top .text-content p{
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    word-wrap: break-word;
+    max-width: 720px;
+    text-align: justify;
+}
+.top .text-content textarea{
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    word-wrap: break-word;
+    width: 720px;
+    text-align: justify;
+    background-color: none;
+    resize: vertical;
+    border: none;
+    min-height: 50px;
+    max-height: 200px;
+    padding-right: 10px;
+}
+
+.top .text-content textarea::-webkit-scrollbar-thumb{
+    background-color: #06F;
+}
+.top .icons{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.bottom{
+    margin: 1rem 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.bottom .checkbox{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.bottom .checkbox input{
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+.bottom .checkbox input:checked + p{
+    color: #0066FF;
+}
+.bottom .checkbox p{
+    color: grey;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.bottom select{
+    width: 280px;
+    border-radius: 8px;
+    border: 2px solid #C7C7C7;
+    padding: 2px 8px;
+    font-size: 18px;
+}
+
+
+.question-component .middle{
+    margin: 1rem ;
+    min-height: 100px;
+    border-radius: 9px;
+    border: 2px solid #9B9B9B;
+    padding: 0.8rem 1rem;
+}
+.middle .notion-todo-item{
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+.middle .notion-todo-item span{
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+
+/*  something else*/
+.middle ul[data-type="taskList"] {
+    list-style: none;
+    padding: 0;
+
+}
+  
+.middle ul[data-type="taskList"] li {
+    display: flex;
+    /* align-items: start; */
+    align-items: flex-start;
+    gap: 4px;
+    color: #000;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  
+.middle ul[data-type="taskList"] li > label {
+    flex: 0 0 auto;
+    margin-right: 0.5rem;
+    user-select: none;
+  }
+  
+.middle ul[data-type="taskList"] li > div {
+    flex: 1 1 auto;
+  }
+  
+.middle ul[data-type="taskList"] input[type="checkbox"] {
+    cursor: pointer;
+  }
+
+.ProseMirror .is-empty::before {
+    content: attr(data-placeholder);
+    float: left;
+    color: #ced4da;
+    pointer-events: none;
+    height: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* modules */
+.app__editcontainer-content_modules .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 4rem;
+}
+
+.app__editcontainer-content_modules .container > input,
+.app__editcontainer-content_modules .container > select{
+    width: 300px;
+    border:  2px solid #0066FF ;
+    color: #0066FF;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+
+}
+.app__editcontainer-content_modules .container > select::-webkit-scrollbar-thumb{
+    background-color: #0066FF;
+}
+.app__editcontainer-content_modules .container > span{
+    font-size: 4rem;
+    color: #0066FF;
+    
+}
+.app__editcontainer-content_modules .container > a{
+    font-size: 18px;
+    color: #0066FF;
+    font-family: var(--font-poppins);
+    transition: all 0.3s ease;
+
+}
+.app__editcontainer-content_modules .container > a:hover{
+    letter-spacing: 5px;
+}
+.app__editcontainer-content_modules .container .buttons-container{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.app__editcontainer-content_modules .container .buttons-container button{
+    width: 120px;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    background-color: #0066FF;
+    border: none;
+    color: white;
+    cursor:  pointer;
+    transition: 300ms all ease;
+}
+.app__editcontainer-content_modules .container .buttons-container button:nth-child(2){
+    background-color: white;
+    border:2px solid #0066FF ;
+    color: #0066FF;
+}
+.app__editcontainer-content_modules .container .buttons-container button:hover{
+    opacity: 0.5;
+}
+.app__editcontainer-content_modules .container .checkbox-container{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 300px;
+    border:  2px solid #0066FF ;
+    color: #0066FF;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    font-family: var(--font-poppins);
+    font-size: 18px;
+}
+.app__editcontainer-content_modules .container .checkbox-container input{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:1440px) {
+    .app__editcontainer-content_exams .infos .exam-notes .inner{
+    padding: 4rem 18rem;
+
+    }
+}
+
+
+
+
+
+

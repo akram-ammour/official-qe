@@ -29,20 +29,23 @@ app.use(cors(
     }
 ))
 
+app.use("/api/test",(req,res)=>{
+    return res.json("this is working")
+})
 // app.use("/users",users)
 // app.use("/")
 app.use(express.static("public"))
-app.use("/auth",auth)
+app.use("/api/auth",auth)
 
 app.use(verifyJwt) // these routes are protected with jwt
 app.use(verifyRevoke)
-app.use("/exams",exams)
-app.use("/modules",modules)
-app.use("/courses",courses)
-app.use("/questions",questions)
-app.use("/users",users)
-app.use("/ranking",ranking)
-app.use("/images",images)
+app.use("/api/exams",exams)
+app.use("/api/modules",modules)
+app.use("/api/courses",courses)
+app.use("/api/questions",questions)
+app.use("/api/users",users)
+app.use("/api/ranking",ranking)
+app.use("/api/images",images)
 
 app.listen(process.env.PORT,()=>{
     console.log(`listening at port ${process.env.PORT}`)

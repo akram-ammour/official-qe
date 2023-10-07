@@ -1,3 +1,0 @@
--- AlterTable
-ALTER TABLE `exam` ADD COLUMN `Title` VARCHAR(191) NULL,
-    ADD COLUMN `isDifferent` BOOLEAN NOT NULL DEFAULT false;

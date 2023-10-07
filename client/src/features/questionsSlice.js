@@ -65,3 +65,4 @@ export const questionsSlice = createSlice({
 export const {setCurrentQuestion,setQuestions,setCurrentMode,resetQuestions,setModeId,nextQuestion,prevQuestion} = questionsSlice.actions;
 export default questionsSlice.reducer;
 
+

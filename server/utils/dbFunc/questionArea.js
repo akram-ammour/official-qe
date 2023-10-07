@@ -10,9 +10,7 @@ const queryQuestions = async (Id,Where)=>{
             select:{
                 Questions:{
                     orderBy:{
-                        Exam:{
-                            Year:"desc"
-                        }
+                      		Id:"asc",
                     },
                     include:{
                         Options:true,

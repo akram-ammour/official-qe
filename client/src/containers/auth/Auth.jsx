@@ -23,10 +23,10 @@ const Auth = ({ signin = false }) => {
   const from = location.state?.from?.pathname || "/dashboard"
   const authDict = signin
     ? { value: "Sign in", link: "/signin" }
-    : { value: "Sign up", link: "/signup" };
+    : { value: "Sign up", link: "/signin" };
   const authOpposite = !signin
     ? { value: "Sign in", link: "/signin" }
-    : { value: "Sign up", link: "/signup" };
+    : { value: "Sign up", link: "/signin" };
 
   const [signinInputs, setSigninInputs] = useState({
     Email: "",
@@ -261,10 +261,7 @@ const Auth = ({ signin = false }) => {
         </button>
 
         <div className="app__auth-container_changeauth">
-          {signin ? "No Account ?" : "Already registered ?"}{" "}
-          <a href="#" onClick={(ev) => navigate(authOpposite.link)}>
-            {authOpposite.value}
-          </a>
+          {signin ? "No Account Contact Us ?" : "Already registered ?"}{" "}
         </div>
         <div className="app__auth-container_needhelp">
           {signin ? <p>Forgot password ?</p> : <p>Need help ?</p>}

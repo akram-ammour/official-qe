@@ -27,7 +27,7 @@ const Navbar = () => {
       </div>
       <ul className="app__navbar-sign">
         <li><a onClick={ev => navigate("/signin")}>Sign In</a></li>
-        <button onClick={ev => navigate("/signup")}>Sign Up</button>
+        <button onClick={ev => navigate("/signin")}>Sign Up</button>
       </ul>
       <ul className="app__navbar-menu">
       {toggleMenu
@@ -43,7 +43,7 @@ const Navbar = () => {
               </ul>
                 <ul className="app__navbar-menu_container-sign">
                   <li><a onClick={ev => navigate("/signin")}>Sign In</a></li>
-                  <button onClick={ev => navigate("/signup")}>Sign Up</button>
+                  <button onClick={ev => navigate("/signin")}>Sign Up</button>
                 </ul>
 
             </div>

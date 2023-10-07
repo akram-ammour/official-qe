@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './customselect.css'
-const Customselect = ({onChange,value}) => {
+const Customselect = ({onChange,value,name}) => {
   const [color,setColor] = useState('#00000099')
   const colorStyle = {
     color: color,  // Change the text color here
@@ -11,7 +11,7 @@ const Customselect = ({onChange,value}) => {
   }
   return (
     <div className='app__customselect'>
-      <select className="app__customselect-selectbox" value={value} onChange={onChange}  onClick={changeColor} style={colorStyle}>
+      <select className="app__customselect-selectbox" name={name} value={value} onChange={onChange}  onClick={changeColor} style={colorStyle}>
         <option value="">Selectionner une année</option>
         <option value="FIRST">Premiere année</option>
         <option value="SECOND">Deuxieme année</option>

@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const cookieParser = require("cookie-parser")
 const verifyJwt = require("./middlewares/verifyJwt")
 const verifyRevoke = require("./middlewares/verifyRevokingRefreshToken")
-
+const path = require('path')
 
 const app = express()
 const modules = require("./routes/modules")
@@ -23,18 +23,18 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(cors(
     {
-    origin:[`${process.env.BASE_URL}`,'http://e-qe.com'],
+    origin:[`${process.env.BASE_URL}`,'http://e-qe.com','http://e-qe.online','https://e-qe.com','https://e-qe.online'],
     methods:["POST",'GET',"PATCH","DELETE"],
     credentials:true
     }
 ))
 
 app.use("/api/test",(req,res)=>{
-    return res.json("this is working")
+    return res.json(`currrent working directory is now : ${path.join(__dirname + '..','public')}`)
 })
 // app.use("/users",users)
 // app.use("/")
-app.use(express.static("public"))
+app.use('/api', express.static("public"))
 app.use("/api/auth",auth)
 
 app.use(verifyJwt) // these routes are protected with jwt

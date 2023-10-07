@@ -343,6 +343,25 @@ const ExamsContainer = () => {
 
   const [currentQuestionIndex,setCurrentQuestionIndex] = useState(0)
 
+
+  const handleSave = async (e) => {
+    if (e.ctrlKey && e.key === 's') {
+      e.preventDefault(); // Prevent the default browser save action
+      // Perform your save action here
+      await saveExam()
+      // Add your save logic here
+    }
+  };
+
+  useEffect(() => {
+    // Add an event listener for keydown events
+    window.addEventListener('keydown', handleSave);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('keydown', handleSave);
+    };
+  }, []); 
   return (
     <div className="app__editcontainer-content_exams">
       {notes && <div className="overlay"/>}
@@ -575,3 +594,4 @@ const ExamsContainer = () => {
 };
 
 export default ExamsContainer;
+

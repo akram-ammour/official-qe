@@ -167,8 +167,8 @@ model Exam {
 
 model Question {
   Id               Int                @id @default(autoincrement())
-  Text             String
-  CasClinique      String?
+  Text             String  @db.LongText
+  CasClinique      String? @db.LongText
   Number           Int
   Cours            Cours              @relation(fields: [CoursId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
   Exam             Exam               @relation(fields: [ExamId], references: [Id], onDelete: Cascade, onUpdate: Cascade)

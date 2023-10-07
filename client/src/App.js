@@ -26,7 +26,7 @@ const App = () => {
               {/* sign in and signup pages */}
               <Route path='/signin' element={<Signin/>}/>
 
-              <Route path='/signup' element={<Signup/>}/>
+              
 
 
 

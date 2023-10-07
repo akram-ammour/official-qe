@@ -214,7 +214,7 @@ if (!Fname || !Lname || !Email || !Password || !Plan ) return res.status(400).js
                     Subscription: "FREE", // free paid plus
                     FullName: Fname.trim() + " " + Lname.trim(),
                     Semester1:true,
-                    Semester2:true,
+                    Semester2:false,
                     Role:"USER",
                     Points:{
                         create:userModules.map((mod)=>{
